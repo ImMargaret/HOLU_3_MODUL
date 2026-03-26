@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ХОЛУ — медиапроект о китайском чае</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.png" type="image/png">
+<style>
+  /* Дополнительные стили для страницы статей */
+  .articles-hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .articles-page {
+    background: #efe9e6;
+    min-height: 100vh;
+  }
+  
+  .articles-masonry {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px 60px 100px;
+  }
+  
+  /* Masonry Grid Layout - 12 колонок */
+  .masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: auto;
+    gap: 14px;
+    margin-bottom: 60px;
+  }
+  
+  /* Карточки разных размеров */
+  .masonry-item {
+    position: relative;
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+	background: #d3d3a5;
+  }
+  
+  .masonry-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Размеры карточек */
+  .item-5x1 {
+    grid-column: span 9;
+    grid-row: span 2;
+  }
+  
+  .item-1x2 {
+    grid-column: span 3;
+    grid-row: span 4;
+  }
+  
+  .item-2x1 {
+    grid-column: span 4;
+    grid-row: span 2;
+  }
+  
+  .item-3x1 {
+    grid-column: span 5;
+    grid-row: span 2;
+  }
+  
+  .item-6x2 {
+    grid-column: span 12;
+    grid-row: span 4;
+	min-height: 380px;
+	margin-top: 12px;
+	margin-bottom: 12px;
+  }
+  
+  .item-3x1-5 {
+    grid-column: span 6;
+    grid-row: span 3;
+  }
+  
+  /* Контент карточки */
+  .masonry-image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .item-5x1 .masonry-image {
+    height: 280px;
+  }
+  
+  .item-1x2 .masonry-image {
+    height: 580px;
+  }
+  
+  .item-2x1 .masonry-image {
+    height: 280px;
+  }
+  
+  .item-3x1 .masonry-image {
+    height: 280px;
+  }
+  
+  .item-6x2 .masonry-image {
+    height: 480px;
+  }
+  
+  .item-3x1-5 .masonry-image {
+    height: 180px;
+  }
+  
+  .masonry-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .masonry-item:hover .masonry-image img {
+    transform: scale(1.05);
+  }
+  
+  /* Стили для тегов - внутри контента, не абсолютные */
+  .masonry-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .masonry-tag {
+    background: rgba(255, 255, 212, 0.95);
+    color: #1f1f1f;
+    font-size: 13px;
+    font-weight: 300;
+    padding: 5px 14px;
+    border-radius: 8px;
+    font-family: 'MADE Evolve Sans', 'Montserrat', sans-serif;
+    display: inline-block;
+  }
+  
+  .masonry-content {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .masonry-title {
+    font-family: 'MADE Evolve Sans', 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    color: #1f1f1f;
+  }
+  
+  .item-1x2 .masonry-title {
+    font-size: 24px;
+  }
+  
+  .item-6x2 .masonry-title {
+    font-size: 26px;
+  }
+  
+  .item-3x1-5 .masonry-title {
+    font-size: 22px;
+  }
+  
+  .masonry-date {
+    font-family: 'MADE Evolve Sans', 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: #85914d;
+    margin-top: auto;
+  }
+  
+  /* Горизонтальные карточки (широкие) - картинка справа */
+  .masonry-item.item-5x1,
+  .masonry-item.item-3x1,
+  .masonry-item.item-2x1,
+  .masonry-item.item-3x1-5  {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  
+  /* Для горизонтальных карточек изображение занимает правую часть */
+  /* Для карточек шириной 4 колонки и более (item-5x1, item-6x2, item-3x1) - картинка 66% */
+  .masonry-item.item-5x1 .masonry-image {
+    width: 66%;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+    order: 2;
+  }
+  
+  .masonry-item.item-5x1 .masonry-content {
+    width: 34%;
+    padding: 24px;
+    order: 1;
+  }
+  
+  /* Для карточек шириной 2-3 колонки (item-2x1, item-3x1-5) - картинка 50% */
+  .masonry-item.item-2x1 .masonry-image,
+  .masonry-item.item-3x1-5 .masonry-image,
+  .masonry-item.item-3x1 .masonry-image  {
+    width: 50%;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+    order: 2;
+  }
+  
+  .masonry-item.item-2x1 .masonry-content,
+  .masonry-item.item-3x1-5 .masonry-content,
+  .masonry-item.item-3x1 .masonry-content  {
+    width: 50%;
+    padding: 24px;
+    order: 1;
+  }
+
+  /* Специальные стили для карточки 6х2 - изображение как фон */
+  .masonry-item.item-6x2 {
+    position: relative;
+    background: transparent;
+    overflow: hidden;
+  }
+  
+  /* Изображение как фон на всю карточку */
+  .masonry-item.item-6x2 .masonry-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    order: 0;
+    z-index: 0;
+  }
+  
+  .masonry-item.item-6x2 .masonry-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Контент поверх фонового изображения */
+  .masonry-item.item-6x2 .masonry-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Убираем горизонтальное расположение для этой карточки */
+  .masonry-item.item-6x2 {
+    flex-direction: column;
+  }
+  
+  /* При наведении увеличиваем масштаб фонового изображения */
+  .masonry-item.item-6x2:hover .masonry-image img {
+    transform: scale(1.05);
+  }
+  
+  /* Вертикальные карточки (высокие) - картинка снизу */
+  .masonry-item.item-1x2 {
+    flex-direction: column;
+  }
+  
+  /* Для вертикальных карточек изображение занимает нижнюю часть */
+  .masonry-item.item-1x2 .masonry-image {
+    width: 100%;
+    height: auto;
+    min-height: 280px;
+    margin: 0;
+    border-radius: 0 0 20px 20px;
+    order: 2;
+  }
+  
+  .masonry-item.item-1x2 .masonry-content {
+    order: 1;
+    padding: 24px;
+  }
+  
+  /* Убираем фиксированную высоту для изображений в горизонтальных карточках на десктопе */
+  @media (min-width: 1201px) {
+    .item-5x1 .masonry-image,
+    .item-3x1 .masonry-image,
+    .item-2x1 .masonry-image {
+      height: auto !important;
+    }
+    
+    .masonry-item.item-5x1 .masonry-image img,
+    .masonry-item.item-6x2 .masonry-image img,
+    .masonry-item.item-3x1 .masonry-image img,
+    .masonry-item.item-2x1 .masonry-image img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  /* Стили для скрытых карточек - исправленная версия */
+  .hidden-articles {
+    display: contents;
+  }
+  
+  /* Изначально скрываем все карточки внутри hidden-articles */
+  .hidden-articles .hidden-card {
+    display: none;
+  }
+  
+  /* Когда добавлен класс show, показываем карточки, но сохраняем grid */
+  .hidden-articles.show .hidden-card {
+    display: flex;
+  }
+  
+  /* Добавляем отступ перед скрытыми карточками с помощью псевдоэлемента */
+  .hidden-articles.show::before {
+    content: '';
+    display: block;
+    grid-column: 1 / -1;
+    height: 4px;
+    width: 100%;
+  }
+
+/* Стили для кнопки "Показать еще" */
+.show-more-wrapper {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+  
+  /* Адаптивность для планшетов и мобильных (до 900px) - одна карточка в ряд */
+  @media (max-width: 900px) {
+    .masonry-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    /* Все карточки занимают всю ширину */
+    .item-5x1,
+    .item-1x2,
+    .item-2x1,
+    .item-3x1,
+    .item-6x2,
+    .item-3x1-5 {
+      grid-column: span 1;
+      grid-row: span auto;
+    }
+    
+    /* Все карточки вертикальные */
+    .masonry-item.item-5x1,
+    .masonry-item.item-6x2,
+    .masonry-item.item-3x1,
+    .masonry-item.item-2x1,
+    .masonry-item.item-1x2,
+    .masonry-item.item-3x1-5 {
+      flex-direction: column;
+    }
+    
+    /* Изображение сверху */
+    .masonry-item.item-5x1 .masonry-image,
+    .masonry-item.item-6x2 .masonry-image,
+    .masonry-item.item-3x1 .masonry-image,
+    .masonry-item.item-2x1 .masonry-image,
+    .masonry-item.item-1x2 .masonry-image,
+    .masonry-item.item-3x1-5 .masonry-image {
+      width: 100%;
+      height: 280px;
+      order: 1;
+    }
+    
+    /* Контент снизу */
+    .masonry-item.item-5x1 .masonry-content,
+    .masonry-item.item-6x2 .masonry-content,
+    .masonry-item.item-3x1 .masonry-content,
+    .masonry-item.item-2x1 .masonry-content,
+    .masonry-item.item-1x2 .masonry-content,
+    .masonry-item.item-3x1-5 .masonry-content {
+      width: 100%;
+      order: 2;
+      padding: 24px;
+    }
+    
+    .masonry-title {
+      font-size: 20px;
+    }
+    
+    .masonry-item.item-6x2 .masonry-content {
+      padding: 32px;
+    }
+	
+    .articles-masonry {
+      padding: 30px 20px 60px;
+    }
+    
+    .filter-tags {
+      margin-bottom: 32px;
+      gap: 10px;
+    }
+    
+    .filter-tag {
+      font-size: 13px;
+      padding: 6px 18px;
+    }
+  }
+  
+  /* Адаптация для очень маленьких экранов (до 480px) */
+  @media (max-width: 480px) {
+    .masonry-grid {
+      gap: 16px;
+    }
+    
+    .masonry-item.item-5x1 .masonry-image,
+    .masonry-item.item-6x2 .masonry-image,
+    .masonry-item.item-3x1 .masonry-image,
+    .masonry-item.item-2x1 .masonry-image,
+    .masonry-item.item-1x2 .masonry-image,
+    .masonry-item.item-3x1-5 .masonry-image {
+      height: 220px;
+    }
+    
+    .masonry-title {
+      font-size: 18px;
+    }
+    
+    .masonry-item.item-5x1 .masonry-content,
+    .masonry-item.item-6x2 .masonry-content,
+    .masonry-item.item-3x1 .masonry-content,
+    .masonry-item.item-2x1 .masonry-content,
+    .masonry-item.item-1x2 .masonry-content,
+    .masonry-item.item-3x1-5 .masonry-content {
+      padding: 20px;
+    }
+
+    .masonry-item.item-6x2 .masonry-content {
+      padding: 24px;
+    }
+    
+    .masonry-item.item-6x2 .masonry-title {
+      font-size: 20px;
+    }
+    
+    .articles-masonry {
+      padding: 20px 16px 40px;
+    }
+    
+    .filter-tags {
+      margin-bottom: 24px;
+      gap: 8px;
+    }
+    
+    .filter-tag {
+      font-size: 12px;
+      padding: 5px 14px;
+    }
+  }
+  
+  /* Filter Tags Styles */
+  .filter-tags {
+    max-width: 1400px;
+    margin: 0 auto 48px;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .filter-tag {
+    background: transparent;
+    border: 1px solid #d3d3a5;
+    color: #1f1f1f;
+    font-family: 'MADE Evolve Sans', 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 8px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.03em;
+  }
+
+  .filter-tag:hover {
+    background: #d3d3a5;
+    border-color: #d3d3a5;
+    transform: translateY(-2px);
+  }
+
+  .filter-tag.active {
+    background: #85914d;
+    border-color: #85914d;
+    color: #ffffff;
+  }
+
+  /* Анимация для фильтрации */
+  .masonry-item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .masonry-item.hide {
+    display: none;
+  }
+
+  /* Адаптивность для фильтров на 900px уже есть выше, удаляем дублирование */
+  
+  /* Стили для заголовка */
+  .sorts-heading {
+    font-family: 'TT Ricordi Allegria', 'Playfair Display', serif;
+    font-size: clamp(52px, 5.5vw, 90px);
+    font-weight: 400;
+    text-align: center;
+    color: #1f1f1f;
+    margin: 0 0 40px;
+    line-height: 1.1;
+  }
+  
+  .sorts-content {
+    padding: 20px 20px 0;
+  }
+</style>
+</head>
+<body class="articles-page">
+
+<section class="articles-hero" id="статьи">
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="index.html">
+			<img src="images/footer-logo.png" alt="ХОЛУ логотип" class="header-logo-img" />
+		</a>
+      </div>
+      
+      <!-- Десктопная навигация -->
+      <nav class="main-nav">
+        <a href="index.html">главная</a>
+        <a href="sorts.html">сорта</a>
+        <a href="dishes.html">посуда</a>
+        <a href="articles.html">статьи</a>
+        <a href="faq.html">вопросы</a>
+      </nav>
+      
+      <!-- Бургер-меню для мобильных -->
+      <div class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+  <!-- Хлебные крошки -->
+  <div class="breadcrumbs">
+    <a href="index.html" class="breadcrumb-link">главная</a>
+    <span class="breadcrumb-sep">/</span>
+    <span class="breadcrumb-current">статьи</span>
+  </div>
+	
+    <!-- Мобильная навигация (выпадающее меню) -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">главная</a>
+        <a href="sorts.html">сорта</a>
+        <a href="dishes.html">посуда</a>
+        <a href="articles.html">статьи</a>
+        <a href="faq.html">вопросы</a>
+    </div>
+  </header>
+  
+  <div class="sorts-content">
+    <h2 class="sorts-heading">Самые интересные статьи</h2>
+  </div>
+</section>
+
+<!-- Filter Tags Section -->
+<div class="filter-tags">
+  <button class="filter-tag active" data-filter="all">все статьи</button>
+  <button class="filter-tag" data-filter="церемония">церемония</button>
+  <button class="filter-tag" data-filter="история">история</button>
+  <button class="filter-tag" data-filter="сорта">сорта</button>
+  <button class="filter-tag" data-filter="посуда">посуда</button>
+  <button class="filter-tag" data-filter="здоровье">здоровье</button>
+  <button class="filter-tag" data-filter="свойства">свойства</button>
+</div>
+
+<!-- Masonry Articles Section -->
+<section class="articles-masonry">
+  <div class="masonry-grid" id="masonryGrid">
+    
+    <!-- Ряд 1: 5х1 + 1х2 -->
+    <a href="404.html" class="masonry-item item-5x1">
+      <div class="masonry-image">
+        <img src="images/articles/article-1.png" alt="Статья 1" />
+      </div>
+      <div class="masonry-content">
+	          <div class="masonry-tags">
+          <span class="masonry-tag">история</span>
+          <span class="masonry-tag">традиции</span>
+        </div>
+        <h3 class="masonry-title">История китайского чая: от древних времён до наших дней</h3>
+        <span class="masonry-date">15 марта 2025</span>
+      </div>
+    </a>
+    
+    <a href="404.html" class="masonry-item item-1x2">
+      <div class="masonry-image">
+        <img src="images/articles/article-2.png" alt="Статья 2" />
+      </div>
+      <div class="masonry-content">
+	          <div class="masonry-tags">
+          <span class="masonry-tag">здоровье</span>
+          <span class="masonry-tag">свойства</span>
+        </div>
+        <h3 class="masonry-title">Почему Кудин пьют во время простуды и как избежать горечи</h3>
+        <span class="masonry-date">20 ноября 2025</span>
+      </div>
+    </a>
+    
+    <!-- Ряд 2: 2х1 + 3х1 -->
+    <a href="404.html" class="masonry-item item-2x1">
+      <div class="masonry-image">
+        <img src="images/articles/article-3.png" alt="Статья 3" />
+      </div>
+      <div class="masonry-content">
+	          <div class="masonry-tags">
+          <span class="masonry-tag">церемония</span>
+        </div>
+        <h3 class="masonry-title">Гунфу ча: как провести традиционную чайную церемонию дома</h3>
+        <span class="masonry-date">3 декабря 2025</span>
+      </div>
+    </a>
+    
+    <a href="404.html" class="masonry-item item-3x1">
+      <div class="masonry-image">
+        <img src="images/articles/article-4.png" alt="Статья 4" />
+      </div>
+      <div class="masonry-content">
+	          <div class="masonry-tags">
+          <span class="masonry-tag">сорта</span>
+          <span class="masonry-tag">обзор</span>
+        </div>
+        <h3 class="masonry-title">«Ворсистые пики с Жёлтых гор»: чем маофэн Хуаншань отличается от других маофэнов?</h3>
+        <span class="masonry-date">13 февраля 2026</span>
+      </div>
+    </a>
+    
+    <!-- Ряд 3: 6х1.5 -->
+    <a href="404.html" class="masonry-item item-6x2">
+      <div class="masonry-image">
+        <img src="images/articles/article-5.png" alt="Статья 5" />
+      </div>
+      <div class="masonry-content">
+	          <div class="masonry-tags">
+          <span class="masonry-tag">пуэр</span>
+          <span class="masonry-tag">ферментация</span>
+		  <span class="masonry-tag">традиции</span>
+        </div>
+      </div>
+    </a>
+    
+    <!-- Ряд 4: 3х1.5 + 3х1.5 -->
+    <a href="404.html" class="masonry-item item-3x1-5">
+      <div class="masonry-image">
+        <img src="images/articles/article-6.png" alt="Статья 6" />
+      </div>
+      <div class="masonry-content">
+	          <div class="masonry-tags">
+          <span class="masonry-tag">посуда</span>
+          <span class="masonry-tag">гайвань</span>
+        </div>
+        <h3 class="masonry-title">Гайвань или чайник: что выбрать для разных сортов чая?</h3>
+        <span class="masonry-date">25 января 2026</span>
+      </div>
+    </a>
+    
+    <a href="404.html" class="masonry-item item-3x1-5">
+      <div class="masonry-image">
+        <img src="images/articles/article-7.png" alt="Статья 7" />
+      </div>
+      <div class="masonry-content">
+	          <div class="masonry-tags">
+          <span class="masonry-tag">чайные пары</span>
+          <span class="masonry-tag">эстетика</span>
+        </div>
+        <h3 class="masonry-title">Как выбрать идеальную чайную пару: форма, материал и значение</h3>
+        <span class="masonry-date">10 февраля 2026</span>
+      </div>
+    </a>
+    
+    <!-- Ряд 5: 5х1 + 1х2 -->
+    <a href="404.html" class="masonry-item item-5x1">
+      <div class="masonry-image">
+        <img src="images/articles/article-8.png" alt="Статья 8" />
+      </div>
+      <div class="masonry-content">
+	          <div class="masonry-tags">
+          <span class="masonry-tag">улун</span>
+        </div>
+        <h3 class="masonry-title">Те Гуань Инь: железная богиня милосердия в мире чая</h3>
+        <span class="masonry-date">18 февраля 2026</span>
+      </div>
+    </a>
+    
+    <a href="404.html" class="masonry-item item-1x2">
+      <div class="masonry-image">
+        <img src="images/articles/article-9.png" alt="Статья 9" />
+      </div>
+      <div class="masonry-content">
+	          <div class="masonry-tags">
+          <span class="masonry-tag">чайный этикет</span>
+          <span class="masonry-tag">традиции</span>
+        </div>
+        <h3 class="masonry-title">Китайский чайный этикет: жесты, традиции и уважение</h3>
+        <span class="masonry-date">5 марта 2026</span>
+      </div>
+    </a>
+    
+    <!-- Ряд 6: 5х1 -->
+    <a href="404.html" class="masonry-item item-5x1">
+      <div class="masonry-image">
+        <img src="images/articles/article-10.png" alt="Статья 10" />
+      </div>
+      <div class="masonry-content">
+	          <div class="masonry-tags">
+          <span class="masonry-tag">хранение</span>
+        </div>
+        <h3 class="masonry-title">Как правильно хранить пуэр: создаём идеальные условия дома</h3>
+        <span class="masonry-date">12 марта 2026</span>
+      </div>
+    </a>
+	
+    <!-- ========== СКРЫТЫЕ КАРТОЧКИ (дублируем первые два ряда) ========== -->
+	<div class="hidden-articles">
+      <!-- Ряд 1 (скрытый): 5х1 + 1х2 -->
+      <a href="404.html" class="masonry-item item-5x1 hidden-card">
+        <div class="masonry-image">
+          <img src="images/articles/article-1.png" alt="Статья 11" />
+        </div>
+        <div class="masonry-content">
+          <div class="masonry-tags">
+            <span class="masonry-tag">история</span>
+            <span class="masonry-tag">легенды</span>
+          </div>
+          <h3 class="masonry-title">Легенды о чае: от императора Шэнь Нуна до современных традиций</h3>
+          <span class="masonry-date">22 марта 2026</span>
+        </div>
+      </a>
+      
+      <a href="404.html" class="masonry-item item-1x2 hidden-card">
+        <div class="masonry-image">
+          <img src="images/articles/article-2.png" alt="Статья 12" />
+        </div>
+        <div class="masonry-content">
+          <div class="masonry-tags">
+            <span class="masonry-tag">здоровье</span>
+            <span class="masonry-tag">исследования</span>
+          </div>
+          <h3 class="masonry-title">Научные исследования: как чай влияет на мозг и долголетие</h3>
+          <span class="masonry-date">28 марта 2026</span>
+        </div>
+      </a>
+      
+      <!-- Ряд 2 (скрытый): 2х1 + 3х1 -->
+      <a href="404.html" class="masonry-item item-2x1 hidden-card">
+        <div class="masonry-image">
+          <img src="images/articles/article-3.png" alt="Статья 13" />
+        </div>
+        <div class="masonry-content">
+          <div class="masonry-tags">
+            <span class="masonry-tag">церемония</span>
+            <span class="masonry-tag">чайная пара</span>
+          </div>
+          <h3 class="masonry-title">Как организовать домашнюю чайную церемонию для друзей</h3>
+          <span class="masonry-date">2 апреля 2026</span>
+        </div>
+      </a>
+      
+      <a href="404.html" class="masonry-item item-3x1 hidden-card">
+        <div class="masonry-image">
+          <img src="images/articles/article-4.png" alt="Статья 14" />
+        </div>
+        <div class="masonry-content">
+          <div class="masonry-tags">
+            <span class="masonry-tag">сорта</span>
+            <span class="masonry-tag">да хун пао</span>
+          </div>
+          <h3 class="masonry-title">Да Хун Пао: секреты легендарного красного халата</h3>
+          <span class="masonry-date">8 апреля 2026</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+	<div class="show-more-wrapper">
+      <button id="showMoreBtn" class="btn-primary">Показать еще</button>
+    </div>    
+</section>
+
+  <!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="images/footer-logo.png" alt="ХОЛУ" />
+    </div>
+    
+    <div class="footer-nav-wrapper">
+      <div class="footer-nav-links">
+        <a href="index.html">главная</a>
+        <a href="sorts.html">сорта</a>
+        <a href="dishes.html">посуда</a>
+        <a href="articles.html">статьи</a>
+        <a href="faq.html">вопросы</a>
+      </div>
+      
+      <div class="footer-columns">
+        <div class="footer-col">
+          <p class="footer-col-heading">кураторы</p>
+          <p>Антон Ларин</p>
+          <p>Юрий Сыров</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">студенты</p>
+          <p>Катя Котлярова</p>
+          <p>Рита Филатова</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-social">
+	  <a href="https://t.me/huolutea" target="_blank" class="social-link"><img src="images/telegram.svg" alt="Telegram" style="height: 30px;"/></a>
+	  <a href="https://vk.com/HOLUTEA" target="_blank" class="social-link"><img src="images/vk.svg" alt="VK" /></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Мобильное меню (оставляем как было)
+  const menuToggle = document.getElementById('mobileMenuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      if (mobileNav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+    
+    const mobileLinks = mobileNav.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        menuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+  
+  // ========== ФИЛЬТРАЦИЯ СТАТЕЙ ПО ТЕГАМ ==========
+  
+  // Функция для получения всех тегов статьи
+  function getArticleTags(articleElement) {
+    const tagsSpans = articleElement.querySelectorAll('.masonry-tag');
+    const tags = Array.from(tagsSpans).map(span => span.textContent.toLowerCase());
+    return tags;
+  }
+  
+  // Функция фильтрации
+  function filterArticles(filterValue) {
+    const articles = document.querySelectorAll('.masonry-item');
+    let visibleCount = 0;
+    
+    articles.forEach(article => {
+      if (filterValue === 'all') {
+        article.classList.remove('hide');
+        visibleCount++;
+      } else {
+        const articleTags = getArticleTags(article);
+        if (articleTags.includes(filterValue)) {
+          article.classList.remove('hide');
+          visibleCount++;
+        } else {
+          article.classList.add('hide');
+        }
+      }
+    });
+    
+    // Показываем сообщение, если нет статей
+    const grid = document.getElementById('masonryGrid');
+    let noResultsMsg = document.querySelector('.no-results');
+    
+    if (visibleCount === 0) {
+      if (!noResultsMsg) {
+        noResultsMsg = document.createElement('div');
+        noResultsMsg.className = 'no-results';
+        noResultsMsg.innerHTML = '<p>Статей с таким тегом пока нет</p>';
+        noResultsMsg.style.cssText = `
+          grid-column: 1 / -1;
+          text-align: center;
+          padding: 60px 20px;
+          font-family: 'MADE Evolve Sans', sans-serif;
+          font-size: 18px;
+          color: #1f1f1f;
+          background: #efe9e6;
+          border-radius: 24px;
+        `;
+        grid.appendChild(noResultsMsg);
+      }
+    } else {
+      if (noResultsMsg) {
+        noResultsMsg.remove();
+      }
+    }
+  }
+  
+  // Добавляем обработчики на теги-фильтры
+  const filterTags = document.querySelectorAll('.filter-tag');
+  
+  filterTags.forEach(tag => {
+    tag.addEventListener('click', function() {
+      // Убираем активный класс у всех тегов
+      filterTags.forEach(t => t.classList.remove('active'));
+      // Добавляем активный класс текущему
+      this.classList.add('active');
+      
+      // Получаем значение фильтра
+      const filterValue = this.getAttribute('data-filter');
+      
+      // Применяем фильтрацию
+      filterArticles(filterValue);
+    });
+  });
+  
+  // Инициализация - показываем все статьи
+  filterArticles('all');
+  
+// Функция для получения параметров из URL
+function getUrlParameter(name) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
+}
+
+// Автоматическая фильтрация при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+  const tagParam = getUrlParameter('tag');
+  
+  if (tagParam) {
+    // Находим кнопку фильтра с соответствующим тегом
+    const filterButtons = document.querySelectorAll('.filter-tag');
+    let targetButton = null;
+    
+    // Ищем кнопку с нужным тегом
+    filterButtons.forEach(button => {
+      const filterValue = button.getAttribute('data-filter');
+      if (filterValue === tagParam.toLowerCase()) {
+        targetButton = button;
+      }
+    });
+    
+    // Если нашли кнопку, кликаем по ней
+    if (targetButton) {
+      // Убираем активный класс у всех кнопок
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      // Добавляем активный класс выбранной кнопке
+      targetButton.classList.add('active');
+      // Вызываем фильтрацию
+      filterArticles(tagParam.toLowerCase());
+    } else {
+      // Если тег не найден в фильтрах, показываем все статьи
+      filterArticles('all');
+    }
+    
+    // Прокручиваем страницу к сетке статей
+    const masonryGrid = document.getElementById('masonryGrid');
+    if (masonryGrid) {
+      masonryGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+});
+
+// Кнопка "Показать еще"
+const showMoreBtn = document.getElementById('showMoreBtn');
+const hiddenArticles = document.querySelector('.hidden-articles');
+
+if (showMoreBtn && hiddenArticles) {
+  showMoreBtn.addEventListener('click', function() {
+    hiddenArticles.classList.toggle('show');
+    
+    // Меняем текст кнопки
+    if (hiddenArticles.classList.contains('show')) {
+      showMoreBtn.textContent = 'Скрыть';
+    } else {
+      showMoreBtn.textContent = 'Показать еще';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
