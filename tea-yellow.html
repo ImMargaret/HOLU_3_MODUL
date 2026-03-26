@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ХОЛУ — медиапроект о китайском чае</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.png" type="image/png">
+	<style>
+.section-heading {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero content container */
+.heading-content {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 40px 0;
+}
+
+.heading-heading {
+  font-family: 'TT Ricordi Allegria', 'Georgia', serif;
+  font-size: clamp(52px, 5.5vw, 72px);
+  font-weight: 400;
+  text-align: center;
+  color: #1f1f1f;
+  line-height: 1.1;
+  margin: 0;
+  max-width: 1600px;
+  padding: 0 30px 0 30px;
+}
+
+	/* Info Sections */
+.info-section {
+    background-color: #EFE9E6;
+    padding: 80px 0;
+}
+
+.info-section.alt-bg {
+    background-color: #ffffff;
+}
+
+.info-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.info-container.reverse {
+    direction: rtl;
+}
+
+.info-container.reverse > * {
+    direction: ltr;
+}
+
+.info-content h2 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.info-content p {
+    font-size: 19px;
+    line-height: 1.6;
+}
+
+.info-image img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Service List */
+.service-content {
+    grid-column: 1;
+}
+
+.service-list {
+    list-style-position: outside;
+    padding-left: 24px;
+    margin-top: 24px;
+}
+
+.service-list li {
+    font-size: 19px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+/* Tea Types Section */
+.tea-types-section {
+    background-color: #EFE9E6;
+    padding: 60px 0;
+}
+
+.tea-types-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.tea-type-circle {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.tea-type-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tea-type-caption {
+    font-family: 'MADE Evolve Sans', 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: #1f1f1f;
+    text-align: center;
+    margin-top: 10px;
+    letter-spacing: 0.03em;
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 900px) {
+    .tea-types-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 30px;
+        padding: 0 40px;
+    }
+    
+    .tea-type-caption {
+        font-size: 16px;
+    }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 600px) {
+    .tea-types-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 20px;
+        padding: 0 20px;
+    }
+    
+    .tea-type-caption {
+        font-size: 14px;
+    }
+    
+    .tea-type-circle {
+        border-width: 2px;
+        margin-bottom: 12px;
+    }
+}
+
+/* Адаптивность для очень маленьких экранов */
+@media (max-width: 480px) {
+    .tea-types-container {
+        gap: 24px 16px;
+    }
+    
+    .tea-type-caption {
+        font-size: 12px;
+    }
+}
+	</style>
+</head>
+<body style="background: #d3d3a5;">
+
+<!-- ===== HERO / ЗАГЛАВНАЯ ===== -->
+<section class="section-heading" id="green-tea">
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="index.html">
+			<img src="images/footer-logo.png" alt="ХОЛУ логотип" class="header-logo-img" />
+		</a>
+      </div>
+      
+      <!-- Десктопная навигация -->
+      <nav class="main-nav">
+        <a href="index.html">главная</a>
+        <a href="sorts.html">сорта</a>
+        <a href="dishes.html">посуда</a>
+        <a href="articles.html">статьи</a>
+        <a href="faq.html">вопросы</a>
+      </nav>
+      
+      <!-- Бургер-меню для мобильных -->
+      <div class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+  <!-- Хлебные крошки -->
+  <div class="breadcrumbs">
+    <a href="index.html" class="breadcrumb-link">главная</a>
+    <span class="breadcrumb-sep">/</span>
+    <a href="sorts.html" class="breadcrumb-link">сорта</a>
+    <span class="breadcrumb-sep">/</span>
+    <span class="breadcrumb-current">желтый чай</span>
+  </div>
+	
+    <!-- Мобильная навигация (выпадающее меню) -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">главная</a>
+        <a href="sorts.html">сорта</a>
+        <a href="dishes.html">посуда</a>
+        <a href="articles.html">статьи</a>
+        <a href="faq.html">вопросы</a>
+    </div>
+  </header>
+  
+  <div class="heading-content">
+    <h2 class="heading-heading">Желтый китайский чай</h2>
+  </div>
+</section>
+
+    <!-- Круглые фотки -->
+    <section class="tea-types-section">
+        <div class="tea-types-container">
+            <div class="tea-type-item">
+                <div class="tea-type-circle">
+                    <img src="images/tea/yelloy-1.png" alt="Зеленый чай">
+                </div>
+                <p class="tea-type-caption">Цзюнь Шань Инь Чжень</p>
+            </div>
+            <div class="tea-type-item">
+                <div class="tea-type-circle">
+                    <img src="images/tea/yelloy-2.png" alt="Улун">
+                </div>
+                <p class="tea-type-caption">Хо Шань Хуан Я</p>
+            </div>
+            <div class="tea-type-item">
+                <div class="tea-type-circle">
+                    <img src="images/tea/yelloy-3.png" alt="Белый чай">
+                </div>
+                <p class="tea-type-caption">Мэндин Хуан Я</p>
+            </div>
+        </div>
+    </section>
+
+  <!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="images/footer-logo.png" alt="ХОЛУ" />
+    </div>
+    
+    <div class="footer-nav-wrapper">
+      <div class="footer-nav-links">
+        <a href="index.html">главная</a>
+        <a href="sorts.html">сорта</a>
+        <a href="dishes.html">посуда</a>
+        <a href="articles.html">статьи</a>
+        <a href="faq.html">вопросы</a>
+      </div>
+      
+      <div class="footer-columns">
+        <div class="footer-col">
+          <p class="footer-col-heading">кураторы</p>
+          <p>Антон Ларин</p>
+          <p>Юрий Сыров</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">студенты</p>
+          <p>Катя Котлярова</p>
+          <p>Рита Филатова</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-social">
+	  <a href="https://t.me/huolutea" target="_blank" class="social-link"><img src="images/telegram.svg" alt="Telegram" style="height: 30px;"/></a>
+	  <a href="https://vk.com/HOLUTEA" target="_blank" class="social-link"><img src="images/vk.svg" alt="VK" /></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Мобильное меню
+  const menuToggle = document.getElementById('mobileMenuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      // Блокируем прокрутку страницы при открытом меню
+      if (mobileNav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Закрываем меню при клике на ссылку
+    const mobileLinks = mobileNav.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        menuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+</script>
+
+</body>
+</html>

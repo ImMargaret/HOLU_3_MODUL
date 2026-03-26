@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ХОЛУ — медиапроект о китайском чае</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.png" type="image/png">
+</head>
+<body>
+
+<!-- ===== HERO / ЗАГЛАВНАЯ ===== -->
+<section class="section-hero" id="главная">
+  <img src="images/main/hills.png" alt="Чайные холмы" class="hero-bg" />
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="index.html">
+			<img src="images/footer-logo.png" alt="ХОЛУ логотип" class="header-logo-img" />
+		</a>
+      </div>
+      
+      <!-- Десктопная навигация -->
+      <nav class="main-nav">
+        <a href="index.html">главная</a>
+        <a href="sorts.html">сорта</a>
+        <a href="dishes.html">посуда</a>
+        <a href="articles.html">статьи</a>
+        <a href="faq.html">вопросы</a>
+      </nav>
+      
+      <!-- Бургер-меню для мобильных -->
+      <div class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+    <!-- Мобильная навигация (выпадающее меню) -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">главная</a>
+        <a href="sorts.html">сорта</a>
+        <a href="dishes.html">посуда</a>
+        <a href="articles.html">статьи</a>
+        <a href="faq.html">вопросы</a>
+    </div>
+  </header>
+  <div class="hero-content">
+    <div class="hero-logo">
+      <img src="images/main/logo.png" alt="ХОЛУ логотип" />
+    </div>
+    <p class="hero-subtitle">Медиа, полностью посвященное миру китайского чая</p>
+  </div>
+</section>
+
+<!-- ===== OUR GOAL / НАША ЦЕЛЬ ===== -->
+<section class="section-goal" id="цель">
+  <div class="goal-inner">
+    <h2 class="goal-heading">наша цель</h2>
+    <div class="goal-image-center">
+      <img src="images/main/our-goal.jpg" alt="Наша цель — чайная культура" />
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEA VARIETIES / СОРТА ===== -->
+<section class="section-varieties" id="сорта">
+  <div class="varieties-inner">
+    <h2 class="varieties-heading">читай о самых разных сортах чая</h2>
+    <div class="varieties-link-wrapper">
+      <a href="404.html" class="varieties-link-all">читать все →</a>
+    </div>
+    <div class="varieties-grid">
+      <!-- Variety 1: Зеленый + Билочунь -->
+      <div class="variety-card">
+        <div class="variety-tags">
+          <span class="variety-tag">Зеленый</span>
+          <span class="variety-tag">Билочунь</span>
+        </div>
+        <p class="variety-desc">Узнай, почему изначально Дунтинь Билочунь назывался Ся Шань Жень Сян (невероятный аромат)</p>
+        <div class="variety-image">
+          <img src="images/main/tea-variety-1.jpg" alt="Зеленый чай Билочунь" />
+        </div>
+      </div>
+      
+      <!-- Variety 2: Белый + Шоу Мэй -->
+      <div class="variety-card">
+        <div class="variety-tags">
+          <span class="variety-tag">Белый</span>
+          <span class="variety-tag">Шоу Мэй</span>
+        </div>
+        <p class="variety-desc">Рассказываем рецепт и способы приготовления белого традиционного китайского чая</p>
+        <div class="variety-image">
+          <img src="images/main/tea-variety-2.png" alt="Белый чай Шоу Мэй" />
+        </div>
+      </div>
+      
+      <!-- Variety 3: Черный + Пуэр -->
+      <div class="variety-card">
+        <div class="variety-tags">
+          <span class="variety-tag">Черный</span>
+          <span class="variety-tag">Пуэр</span>
+        </div>
+        <p class="variety-desc">Делимся свойствами и нотами аромата самого знаменитого сорта чая в мире</p>
+        <div class="variety-image">
+          <img src="images/main/tea-variety-3.png" alt="Черный чай Пуэр" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEAWARE / ПОСУДА ===== -->
+<section class="section-teaware" id="посуда">
+  <div class="teaware-inner">
+    <div class="teaware-text">
+      <h2 class="teaware-heading">посуда для ароматного китайского чая Улун</h2>
+      <p class="teaware-desc">
+        Главный выбор, который вам предстоит сделать перед покупкой чайного сервиза, — это предпочитаете ли вы заваривать чай в чайнике или в гайване. Наш выбор начинается именно с этих двух предметов, поскольку они являются главными, а все остальные элементы должны гармонировать с ними.
+      </p>
+      <a href="#вопросы" class="btn-primary">Читать больше</a>
+    </div>
+    <div class="teaware-images">
+      <img src="images/main/teaware.jpg" alt="Чайная посуда" class="teaware-main-img" />
+    </div>
+  </div>
+</section>
+
+<!-- ===== ARTICLES / СТАТЬИ ===== -->
+<section class="section-articles" id="статьи">
+  <div class="articles-inner">
+    <h2 class="articles-heading">читай наши статьи о чае</h2>
+    <div class="articles-link-wrapper">
+      <a href="404.html" class="articles-link-all">читать все →</a>
+    </div>
+    <div class="articles-grid">
+      <!-- Article 1: Кудин -->
+      <a href="404.html" class="article-card-link">
+        <article class="article-card">
+          <div class="article-image">
+            <img src="images/main/article-1.jpg" alt="Кудин чай" />
+            <div class="article-tags">
+              <span class="article-tag">здоровье</span>
+              <span class="article-tag">свойства</span>
+            </div>
+          </div>
+          <div class="article-body">
+            <h3 class="article-title">Почему Кудин пьют во время простуды и как избежать горечи при заваривании напитка?</h3>
+            <div class="article-date">20 ноября 2025</div>
+          </div>
+        </article>
+      </a>
+      
+      <!-- Article 2: Маофэн Хуаншань -->
+      <a href="404.html" class="article-card-link">
+        <article class="article-card">
+          <div class="article-image">
+            <img src="images/main/article-2.jpg" alt="Маофэн Хуаншань чай" />
+            <div class="article-tags">
+              <span class="article-tag">сорта</span>
+              <span class="article-tag">история</span>
+            </div>
+          </div>
+          <div class="article-body">
+            <h3 class="article-title">«Ворсистые пики с Жёлтых гор»: чем маофэн Хуаншань отличается от других маофэнов?</h3>
+            <div class="article-date">13 февраля 2026</div>
+          </div>
+        </article>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Q&A / ВОПРОСЫ ===== -->
+<section class="section-qa" id="вопросы">
+  <div class="qa-inner">
+    <h2 class="qa-heading">отвечаем на ваши вопросы</h2>
+    <div class="qa-grid">
+      <!-- QA Card 1: Приготовление -->
+      <div class="qa-card">
+        <div class="qa-tags">
+          <span class="qa-tag">Приготовление</span>
+        </div>
+        <p class="qa-question">Какой температурой воды нужно заваривать Лю Бао, чтобы он не горчил и ароматно раскрылся?</p>
+        <div class="qa-image">
+          <img src="images/faq/faq-1.jpg" alt="Приготовление чая" />
+        </div>
+      </div>
+      
+      <!-- QA Card 2: История + Церемония -->
+      <div class="qa-card">
+        <div class="qa-tags">
+          <span class="qa-tag">История</span>
+          <span class="qa-tag">Церемония</span>
+        </div>
+        <p class="qa-question">С чего начать изучение традиционного китайского чаепития и что купить для домашнего опыта?</p>
+        <div class="qa-image">
+          <img src="images/faq/faq-2.jpg" alt="Чайная церемония" />
+        </div>
+      </div>
+      
+      <!-- QA Card 3: Сорта -->
+      <div class="qa-card">
+        <div class="qa-tags">
+          <span class="qa-tag">Сорта</span>
+        </div>
+        <p class="qa-question">Почему не получается приготовить молочный улун Най Сян, что делаю не так?</p>
+        <div class="qa-image">
+          <img src="images/faq/faq-3.jpg" alt="Сорта чая" />
+        </div>
+      </div>
+      
+      <!-- QA Card 4: Посуда -->
+      <div class="qa-card">
+        <div class="qa-tags">
+          <span class="qa-tag">Посуда</span>
+        </div>
+        <p class="qa-question">Не получается найти подходящий чайный сервиз для приготовления Белого китайского чая...</p>
+        <div class="qa-image">
+          <img src="images/faq/faq-4.jpg" alt="Чайная посуда" />
+        </div>
+      </div>
+    </div>
+    <div class="qa-cta">
+      <a href="#вопросы" class="btn-primary">Читать больше</a>
+    </div>
+  </div>
+</section>
+
+  <!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="images/footer-logo.png" alt="ХОЛУ" />
+    </div>
+    
+    <div class="footer-nav-wrapper">
+      <div class="footer-nav-links">
+        <a href="index.html">главная</a>
+        <a href="sorts.html">сорта</a>
+        <a href="dishes.html">посуда</a>
+        <a href="articles.html">статьи</a>
+        <a href="faq.html">вопросы</a>
+      </div>
+      
+      <div class="footer-columns">
+        <div class="footer-col">
+          <p class="footer-col-heading">кураторы</p>
+          <p>Антон Ларин</p>
+          <p>Юрий Сыров</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">студенты</p>
+          <p>Катя Котлярова</p>
+          <p>Рита Филатова</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-social">
+	  <a href="https://t.me/huolutea" target="_blank" class="social-link"><img src="images/telegram.svg" alt="Telegram" style="height: 30px;"/></a>
+	  <a href="https://vk.com/HOLUTEA" target="_blank" class="social-link"><img src="images/vk.svg" alt="VK" /></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Мобильное меню
+  const menuToggle = document.getElementById('mobileMenuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      // Блокируем прокрутку страницы при открытом меню
+      if (mobileNav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Закрываем меню при клике на ссылку
+    const mobileLinks = mobileNav.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        menuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+</script>
+
+</body>
+</html>

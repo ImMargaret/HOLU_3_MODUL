@@ -1,0 +1,1255 @@
+/* ============================================
+   FONTS
+   ============================================ */
+
+/* TT Ricordi Allegria Trl - для заголовков */
+@font-face {
+  font-family: 'TT Ricordi Allegria';
+  font-weight: 400;
+  font-style: normal;
+  src: url('fonts/TT Ricordi Allegria Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+/* MADE Evolve Sans Light - для основного текста */
+@font-face {
+  font-family: 'MADE Evolve Sans';
+  font-weight: 300;
+  font-style: normal;
+  src: url('fonts/MADE Evolve Sans Light.otf') format('opentype'),
+       url('fonts/MADE Evolve Sans Light EVO.otf') format('opentype');
+  font-display: swap;
+}
+
+/* MADE Evolve Sans Regular - для акцентного текста */
+@font-face {
+  font-family: 'MADE Evolve Sans';
+  font-weight: 400;
+  font-style: normal;
+  src: url('fonts/MADE Evolve Sans Regular.otf') format('opentype'),
+       url('fonts/MADE Evolve Sans Regular.otf') format('opentype');
+  font-display: swap;
+}
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'MADE Evolve Sans', 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 300;
+  color: #1f1f1f;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Typography ---------- */
+.section-label {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  color: #1f1f1f;
+  margin-bottom: 20px;
+}
+
+.section-label-center {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  color: #1f1f1f;
+  margin-bottom: 12px;
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+  display: inline-block;
+  background: #85914d;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 400;
+  padding: 22px 52px;
+  border-radius: 12px;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #6e7a3d;
+}
+
+.btn-outline {
+  display: inline-block;
+  border: 2px solid #1f1f1f;
+  color: #1f1f1f;
+  font-size: 18px;
+  font-weight: 300;
+  padding: 16px 40px;
+  border-radius: 12px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline:hover {
+  background: #1f1f1f;
+  color: #ffffff;
+}
+
+/* ============================================
+   SECTION: HERO / ЗАГЛАВНАЯ
+   ============================================ */
+.section-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #EFE9E6;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+}
+
+/* Hero content container */
+.hero-content {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px 60px;
+}
+
+.hero-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.hero-logo img {
+  max-width: 900px;
+  width: 100%;
+  object-fit: contain;
+}
+
+/* Подпись под логотипом */
+.hero-subtitle {
+  font-size: 20px;
+  font-weight: 300;
+  text-transform: lowercase;
+  color: #ffffff;
+  text-align: center;
+  margin-top: -41px;
+  max-width: 600px;
+  line-height: 1.4;
+}
+
+.hero-404-subtitle {
+  font-size: 24px;
+  font-weight: 361;
+  text-transform: lowercase;
+  color: #000000;
+  text-align: center;
+  margin-top: 10px;
+  max-width: 300px;
+  line-height: 1.4;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+/* Header */
+.site-header,
+.breadcrumbs,
+.heading-content,
+.footer-inner {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.site-header {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding: 18px 38px;
+  background: transparent;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Логотип в хедере (используем ту же иконку, что в футере) */
+.header-logo {
+  flex-shrink: 0;
+}
+
+.header-logo-img {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+}
+
+.main-nav {
+  display: flex;
+  gap: 48px;
+}
+
+.main-nav a {
+  font-size: 20px;
+  font-weight: 300;
+  color: #1f1f1f;
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s;
+}
+
+.main-nav a:hover {
+  opacity: 0.6;
+}
+
+/* Мобильное меню (бургер) */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #1f1f1f;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #efe9e6;
+  z-index: 15;
+  padding: 100px 40px 40px;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.mobile-nav.active {
+  display: flex;
+  transform: translateX(0);
+}
+
+.mobile-nav a {
+  font-size: 28px;
+  font-weight: 300;
+  color: #1f1f1f;
+  padding: 12px 0;
+  transition: opacity 0.2s;
+}
+
+.mobile-nav a:hover {
+  opacity: 0.6;
+}
+
+/* ============================================
+   BREADCRUMBS / ХЛЕБНЫЕ КРОШКИ
+   ============================================ */
+   
+.breadcrumbs {
+  position: relative;
+  z-index: 10;
+  padding: 20px 0 8px 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'MADE Evolve Sans', 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #1f1f1f;
+}
+
+.breadcrumb-link {
+  color: #1f1f1f;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  font-weight: 300;
+}
+
+.breadcrumb-link:hover {
+  opacity: 0.6;
+}
+
+.breadcrumb-sep {
+  color: #1f1f1f;
+  font-weight: 300;
+}
+
+.breadcrumb-current {
+  color: #85914d;
+  font-weight: 400;
+}
+
+/* ============================================
+   SECTION: OUR GOAL / НАША ЦЕЛЬ (обновленный)
+   ============================================ */
+.section-goal {
+  background: #efe9e6;
+  padding: 100px 60px;
+}
+
+.goal-inner {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Крупный заголовок "наша цель" */
+.goal-heading {
+  font-family: 'TT Ricordi Allegria', 'Georgia', serif;
+  font-size: clamp(52px, 5.5vw, 90px);
+  font-weight: 400;
+  text-align: center;
+  color: #1f1f1f;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Центрированное изображение */
+.goal-image-center {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.goal-image-center img {
+  width: 100%;
+  height: auto;
+  max-height: 700px;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+}
+
+/* ============================================
+   SECTION: TEA VARIETIES / СОРТА (обновленный)
+   ============================================ */
+.section-varieties {
+  background: #d3d3a5;
+  padding: 80px 60px 100px;
+}
+
+.varieties-inner {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+/* Крупный заголовок "читай о самых разных сортах чая" */
+.varieties-heading {
+  font-family: 'TT Ricordi Allegria', 'Georgia', serif;
+  font-size: clamp(52px, 5.5vw, 90px);
+  font-weight: 400;
+  text-align: center;
+  color: #1f1f1f;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Контейнер для ссылки "читать все →" */
+.varieties-link-wrapper {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* Стиль ссылки "читать все →" */
+.varieties-link-all {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  color: #1f1f1f;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.varieties-link-all:hover {
+  opacity: 0.6;
+  border-bottom-color: #1f1f1f;
+}
+
+.varieties-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 60px;
+}
+
+/* Новая структура карточки как в Q&A */
+.variety-card {
+  background: #efe9e6; /* Цвет карточки EFE9E6 */
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 540px;
+  transition: transform 0.2s ease;
+}
+
+.variety-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Контейнер для тегов (центрирование) */
+.variety-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 32px 24px 0;
+  justify-content: center;
+}
+
+/* Стиль тега */
+.variety-tag {
+  display: inline-block;
+  background: #d3d3a5; /* Цвет подложки тега D3D3A5 */
+  color: #1f1f1f;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 6px 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Текст описания */
+.variety-desc {
+  font-size: clamp(16px, 1.4vw, 22px);
+  font-weight: 300;
+  line-height: 1.55;
+  color: #1f1f1f;
+  padding: 24px 28px 0;
+  flex: 1;
+  text-align: center;
+}
+
+/* Изображение */
+.variety-image {
+  margin: 24px 10px 10px;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 340px;
+  flex-shrink: 0;
+}
+
+.variety-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.variety-card:hover .variety-image img {
+  transform: scale(1.04);
+}
+
+/* ============================================
+   SORTS: individual
+   ============================================ */
+.sorts-content {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px 60px;
+}
+
+.sorts-heading {
+  font-family: 'TT Ricordi Allegria', 'Georgia', serif;
+  font-size: clamp(52px, 5.5vw, 72px);
+  font-weight: 400;
+  text-align: center;
+  color: #1f1f1f;
+  line-height: 1.1;
+  margin: 0;
+  max-width: 1600px;
+  padding: 0 30px 0 30px;
+}
+
+/* ============================================
+   SECTION: TEAWARE / ПОСУДА (обновленный)
+   ============================================ */
+.section-teaware {
+  background: #ebdecd;
+  padding: 100px 60px;
+}
+
+.teaware-inner {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.teaware-text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Заголовок "посуда для ароматного китайского чая Улун" */
+.teaware-heading {
+  font-family: 'TT Ricordi Allegria', 'Georgia', serif;
+  font-size: clamp(40px, 4vw, 72px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #1f1f1f;
+  margin-bottom: 32px;
+}
+
+/* Текст описания */
+.teaware-desc {
+  font-size: clamp(16px, 1.5vw, 22px);
+  font-weight: 300;
+  line-height: 1.7;
+  color: #1f1f1f;
+  margin-bottom: 48px;
+  max-width: 560px;
+}
+
+/* Кнопка "Читать больше" - используем стили .btn-primary */
+.btn-primary {
+  display: inline-block;
+  background: #85914d;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 400;
+  padding: 22px 52px;
+  border-radius: 12px;
+  transition: background 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: #6e7a3d;
+}
+
+.teaware-images {
+  flex: 1.3;
+  min-width: 0;
+}
+
+.teaware-main-img {
+  width: 100%;
+  max-height: 680px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* ============================================
+   SECTION: ARTICLES / СТАТЬИ (обновленный)
+   ============================================ */
+.section-articles {
+  background: #efe9e6;
+  padding: 80px 60px 100px;
+}
+
+.articles-inner {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+/* Крупный заголовок "читай наши статьи о чае" */
+.articles-heading {
+  font-family: 'TT Ricordi Allegria', 'Georgia', serif;
+  font-size: clamp(52px, 5.5vw, 90px);
+  font-weight: 400;
+  text-align: center;
+  color: #1f1f1f;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Контейнер для ссылки "читать все →" */
+.articles-link-wrapper {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* Стиль ссылки "читать все →" */
+.articles-link-all {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  color: #1f1f1f;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.articles-link-all:hover {
+  opacity: 0.6;
+  border-bottom-color: #1f1f1f;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+/* Ссылка, оборачивающая всю карточку */
+.article-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.article-card-link:hover {
+  transform: translateY(-4px);
+}
+
+.article-card-link:hover .article-card {
+  transform: none;
+}
+
+.article-card {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: box-shadow 0.2s ease;
+}
+
+.article-card-link:hover .article-card {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.article-image {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+}
+
+.article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.article-card-link:hover .article-image img {
+  transform: scale(1.04);
+}
+
+/* Контейнер для тегов (слева по верху) */
+.article-tags {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Стиль тега */
+.article-tag {
+  display: inline-block;
+  background: rgba(255, 255, 212, 0.9);
+  color: #1f1f1f;
+  font-size: 15px;
+  font-weight: 300;
+  padding: 6px 20px;
+  border-radius: 8px;
+}
+
+.article-body {
+  padding: 40px 48px 48px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 24px;
+}
+
+.article-title {
+  font-family: 'MADE Evolve Sans', 'Montserrat', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #1f1f1f;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* Дата (слева по низу) */
+.article-date {
+  font-size: 16px;
+  font-weight: 300;
+  color: #85914d;
+  margin-top: auto;
+  text-align: left;
+}
+
+/* ============================================
+   SECTION: Q&A / ВОПРОСЫ (обновленный)
+   ============================================ */
+.section-qa {
+  background: #efe9e6;
+  padding: 80px 60px 100px;
+}
+
+.qa-inner {
+  max-width: 1840px;
+  margin: 0 auto;
+}
+
+.qa-heading {
+  font-family: 'TT Ricordi Allegria', 'Georgia', serif;
+  font-size: clamp(52px, 5.5vw, 90px);
+  font-weight: 400;
+  text-align: center;
+  color: #1f1f1f;
+  margin-bottom: 64px;
+  line-height: 1.02;
+}
+
+.qa-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.qa-card {
+  background: #d3d3a5;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 540px;
+}
+
+.qa-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 32px 24px 0;
+  justify-content: center; /* Центрируем теги */
+}
+
+.qa-tag {
+  display: inline-block;
+  background: rgba(255, 255, 212, 0.85);
+  color: #1f1f1f;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 6px 18px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.qa-question {
+  font-size: clamp(16px, 1.4vw, 22px);
+  font-weight: 300;
+  line-height: 1.55;
+  color: #1f1f1f;
+  padding: 24px 28px 0;
+  flex: 1;
+  text-align: center;
+}
+
+.qa-image {
+  margin: 24px 10px 10px;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 340px;
+  flex-shrink: 0;
+}
+
+.qa-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.qa-cta {
+  display: flex;
+  justify-content: center;
+}
+
+/* ============================================
+   FOOTER / ПОДВАЛ (обновленный)
+   ============================================ */
+.site-footer {
+  background: #d3d3a5;
+  padding: 56px 0;
+}
+
+.footer-inner {
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0 60px 0 60px;
+}
+
+.footer-logo {
+  flex-shrink: 0;
+  width: 220px;
+}
+
+.footer-logo img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.footer-nav-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 68px;
+}
+
+.footer-nav-links {
+  display: flex;
+  gap: 48px;
+  justify-content: flex-start;
+}
+
+.footer-nav-links a {
+  font-size: 22px;
+  font-weight: 300;
+  color: #1f1f1f;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.footer-nav-links a:hover {
+  opacity: 0.6;
+}
+
+.footer-columns {
+  display: flex;
+  gap: 120px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col p {
+  font-size: 22px;
+  font-weight: 300;
+  color: #1f1f1f;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.footer-col .footer-col-heading {
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+/* Социальные иконки */
+.footer-social {
+  flex-shrink: 0;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.social-link {
+  display: inline-block;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.social-link:hover {
+  opacity: 0.7;
+  transform: translateY(-2px);
+}
+
+.social-link img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1200px) {
+  .varieties-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .qa-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Адаптация футера для планшетов */
+  .footer-inner {
+    flex-wrap: wrap;
+  }
+  
+  .footer-nav-wrapper {
+    order: 2;
+    width: 100%;
+    gap: 48px;
+  }
+  
+  .footer-social {
+    order: 3;
+  }
+  
+  .footer-logo {
+    order: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .breadcrumbs {
+    padding: 8px 20px 6px;
+    font-size: 12px;
+  }
+
+  .hero-subtitle { 
+	margin-top: 0;
+  }
+  
+  .goal-inner {
+    gap: 40px;
+  }
+
+  .goal-heading {
+    margin-bottom: 0;
+  }
+  
+  .goal-image-center img {
+    max-height: 500px;
+  }
+  
+  .teaware-inner {
+    flex-direction: column-reverse;
+    gap: 48px;
+  }
+  
+  .teaware-text {
+    text-align: center;
+  }
+  
+  .teaware-desc {
+    max-width: 100%;
+  }
+  
+  .btn-primary {
+    font-size: 18px;
+    padding: 18px 40px;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .varieties-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-nav {
+    gap: 24px;
+  }
+
+  .main-nav a {
+    font-size: 16px;
+  }
+
+  .site-header {
+    padding: 16px 20px;
+  }
+  
+  .header-logo-img {
+    height: 48px;
+  }
+
+  .section-goal,
+  .section-teaware,
+  .section-varieties,
+  .section-articles,
+  .section-qa {
+    padding: 60px 24px;
+  }
+  
+  /* Адаптация футера для мобильных */
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 48px;
+  }
+  
+  .footer-nav-wrapper {
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .footer-nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+  
+  .footer-columns {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+  }
+  
+  .footer-col {
+    align-items: center;
+  }
+  
+  .footer-social {
+    width: 160px;
+  }
+  
+  .varieties-link-all {
+    font-size: 16px;
+  }
+  
+  .varieties-link-wrapper {
+    margin-bottom: 40px;
+  }
+  
+  .articles-link-all {
+    font-size: 16px;
+  }
+  
+  .articles-link-wrapper {
+    margin-bottom: 40px;
+  }
+  
+  .articles-heading {
+    margin-bottom: 20px;
+  }
+  
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .article-body {
+    padding: 32px 32px 40px;
+  }
+  
+  .article-title {
+    font-size: 24px;
+  }
+  
+  .article-date {
+    font-size: 14px;
+  }
+  
+  .article-tag {
+    font-size: 13px;
+    padding: 5px 16px;
+  }
+  
+  .footer-social {
+    justify-content: center;
+    gap: 24px;
+  }
+  
+  .social-link img {
+    width: 36px;
+    height: 36px;
+  }  
+  
+}
+
+@media (max-width: 600px) {
+  .breadcrumbs {
+    padding: 6px 20px 6px;
+    font-size: 11px;
+  }
+
+  .hero-content {
+    padding: 20px 20px 40px;
+  }
+  
+  .hero-subtitle {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    padding: 0 20px;
+	margin-top: 0;
+  }
+  
+  .hero-logo img {
+    width: 80%;
+    max-width: 500px;
+  }
+  
+  .hero-logo {
+    margin-bottom: 16px;
+  }
+
+  .goal-image-center img {
+    max-height: 400px;
+    border-radius: 16px;
+  }
+
+  .btn-primary {
+    font-size: 16px;
+    padding: 16px 32px;
+  }
+
+  .qa-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Скрываем десктопное меню и показываем бургер */
+  .main-nav {
+    display: none;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .header-logo-img {
+    height: 42px;
+  }
+  
+  .hero-logo img {
+    width: 90%;
+  }
+  
+  .footer-nav-links a {
+    font-size: 18px;
+  }
+  
+  .footer-col p,
+  .footer-col .footer-col-heading {
+    font-size: 18px;
+  }
+  
+  .varieties-link-all {
+    font-size: 14px;
+  }
+  
+  .varieties-link-wrapper {
+    margin-bottom: 32px;
+  }
+
+  .articles-link-all {
+    font-size: 14px;
+  }
+  
+  .articles-link-wrapper {
+    margin-bottom: 32px;
+  }
+  
+  .article-body {
+    padding: 24px 24px 32px;
+  }
+  
+  .article-title {
+    font-size: 20px;
+  }
+  
+  .article-date {
+    font-size: 13px;
+  }
+  
+  .article-tag {
+    font-size: 12px;
+    padding: 4px 14px;
+  }
+  
+  .article-tags {
+    top: 16px;
+    left: 16px;
+  }
+  
+  .footer-social {
+    gap: 20px;
+  }
+  
+  .social-link img {
+    width: 32px;
+    height: 32px;
+  }
+}
